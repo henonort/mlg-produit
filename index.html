@@ -1,0 +1,2396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diesel Detox Pro — Additif carburant diesel | MyLittleGarage.fr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+  <style>
+    /* ======================== */
+    /* CSS CUSTOM PROPERTIES    */
+    /* ======================== */
+    :root {
+      --blue: #3684C5;
+      --blue-dark: #1d4f7a;
+      --gold: #FFD700;
+      --bg-light: #F9F9F9;
+      --white: #FFFFFF;
+      --text-dark: #212121;
+      --text-body: #616161;
+      --text-light: #9E9E9E;
+      --placeholder-bg: #EEEEEE;
+      --placeholder-border: #BDBDBD;
+      --red-promo: #E53935;
+      --green-check: #43A047;
+      --font-display: 'DM Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-card: 10px;
+      --radius-pill: 50px;
+      --shadow-card: 0 2px 8px rgba(0,0,0,0.07);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.12);
+      --section-gap: 80px;
+      --container: 1250px;
+    }
+
+    /* ======================== */
+    /* RESET & BASE             */
+    /* ======================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--text-body);
+      background: var(--bg-light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      color: var(--text-dark);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    a { text-decoration: none; color: var(--blue); }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ======================== */
+    /* PLACEHOLDER IMAGE        */
+    /* ======================== */
+    .placeholder {
+      background: var(--placeholder-bg);
+      border: 2px dashed var(--placeholder-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 14px;
+      font-family: var(--font-body);
+      text-align: center;
+      padding: 16px;
+      border-radius: var(--radius-card);
+    }
+
+    /* ======================== */
+    /* BUTTONS                  */
+    /* ======================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: var(--radius-pill);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(255,215,0,0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--blue);
+      border-color: var(--blue);
+    }
+    .btn-secondary:hover {
+      background: var(--blue);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-white-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .btn-white-outline:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: var(--white);
+    }
+
+    .btn-sm {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .cart-qty-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+    .qty-control {
+      display: flex;
+      align-items: center;
+      background: #EFEFEF;
+      border: none;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      max-width: 0;
+      opacity: 0;
+      transition: max-width 0.25s ease, opacity 0.2s ease;
+    }
+    .cart-qty-wrapper:hover .qty-control {
+      max-width: 90px;
+      opacity: 1;
+    }
+    .qty-btn {
+      width: 28px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--blue);
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .qty-btn:hover { background: rgba(54,132,197,0.1); }
+    .qty-value {
+      min-width: 24px;
+      text-align: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text-dark);
+      user-select: none;
+    }
+    .btn-add-cart {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.2s, transform 0.2s;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .btn-add-cart:hover {
+      background: var(--blue-dark);
+      transform: scale(1.1);
+    }
+
+    /* ======================== */
+    /* SECTION 0 — TOP BAR      */
+    /* ======================== */
+    .topbar {
+      background: var(--gold);
+      color: var(--text-dark);
+      font-size: 12px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      overflow: hidden;
+      height: 36px;
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar-track {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: marquee 28s linear infinite;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-25%); }
+    }
+
+    .topbar-msg {
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 56px;
+    }
+    .topbar-msg i { font-size: 14px; }
+
+    /* ======================== */
+    /* HEADER / NAV             */
+    /* ======================== */
+    .header {
+      background: var(--white);
+      border-bottom: 1px solid #E0E0E0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-top {
+      padding: 14px 0;
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    .header-top .container {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .header-search {
+      flex: 1;
+      position: relative;
+    }
+    .header-search input {
+      width: 100%;
+      height: 40px;
+      border: 1.5px solid #D8D8D8;
+      border-radius: var(--radius-pill);
+      padding: 0 16px 0 42px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .header-search input::placeholder { color: #999; }
+    .header-search input:focus { border-color: var(--blue); }
+    .header-search .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #999;
+      pointer-events: none;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .nav-icon {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 12px;
+      height: 40px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-light);
+      font-size: 14px;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+      white-space: nowrap;
+    }
+    .nav-icon i { font-size: 18px; flex-shrink: 0; }
+    .nav-icon:hover { background: #E8E8E8; }
+
+    .nav-icon-cart {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .nav-icon-cart:hover { background: var(--blue-dark); }
+    .cart-count {
+      background: var(--gold);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cart-price {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* Nav bar */
+    .header-nav {
+      padding: 0;
+      background: var(--white);
+      border-bottom: 1px solid #E8E8E8;
+    }
+    .header-nav .container {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      max-width: 1250px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+      justify-content: space-evenly;
+    }
+
+    /* Nav item avec dropdown */
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+    }
+    .nav-item > a {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--text-body);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s, background 0.2s;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .nav-item > a:hover,
+    .nav-item:hover > a {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+      background: rgba(54,132,197,0.04);
+    }
+
+    /* Dropdown */
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 220px;
+      background: var(--white);
+      border: 1px solid #E8E8E8;
+      border-top: 2px solid var(--gold);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      border-radius: 0 0 var(--radius-card) var(--radius-card);
+      display: none;
+      flex-direction: column;
+      z-index: 200;
+      padding: 8px 0;
+    }
+    .nav-item:hover .nav-dropdown { display: flex; }
+    .nav-dropdown a {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-body);
+      padding: 9px 18px;
+      text-transform: none;
+      letter-spacing: 0;
+      border-bottom: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown a:hover {
+      background: rgba(54,132,197,0.07);
+      color: var(--blue);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--text-dark);
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* ======================== */
+    /* SECTION 1 — HERO         */
+    /* ======================== */
+    .hero {
+      background: var(--blue-dark);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .hero-video-bg iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.78vh;
+      height: 100vh;
+      min-width: 100%;
+      min-height: 56.25vw;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 1;
+    }
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 20px;
+    }
+    .hero-badge i { color: var(--gold); font-size: 14px; }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+    .hero h1 .highlight { color: var(--blue); }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 16px;
+    }
+
+    /* ======================== */
+    /* SECTION 2 — REASSURANCE  */
+    /* ======================== */
+    .reassurance {
+      background: var(--white);
+      border-top: 1px solid #E8E8E8;
+      border-bottom: 1px solid #E8E8E8;
+      padding: 36px 0;
+    }
+
+    .reassurance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .reassurance-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .reassurance-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(54,132,197,0.1);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .reassurance-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+      letter-spacing: -0.3px;
+    }
+
+    .reassurance-text span {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* ======================== */
+    /* SECTION 3 — PRODUIT STAR */
+    /* ======================== */
+    .star-product {
+      padding: var(--section-gap) 0;
+    }
+
+    .star-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .star-card-gradient {
+      height: 4px;
+      background: var(--blue);
+    }
+
+    .star-card-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .star-card-image {
+      aspect-ratio: 1;
+      position: relative;
+    }
+
+    .star-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--gold);
+      color: var(--text-dark);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .star-badge i { font-size: 14px; }
+
+    .star-card-info {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .star-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+
+    .star-card-info h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .star-tagline {
+      color: var(--text-body);
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .star-benefits {
+      margin-bottom: 28px;
+    }
+
+    .star-benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text-body);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .check-icon {
+      color: var(--green-check);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .star-price {
+      margin-bottom: 24px;
+    }
+
+    .star-price .price-main {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -1px;
+    }
+
+    .star-price .price-installment {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-left: 8px;
+    }
+
+    .star-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .star-video-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-weight: 500;
+      font-size: 14px;
+      transition: gap 0.2s;
+    }
+    .star-video-link:hover { gap: 10px; }
+    .star-video-link i { font-size: 14px; }
+
+    /* ======================== */
+    /* SECTION 4 — OFFRES       */
+    /* ======================== */
+    .offers {
+      padding: var(--section-gap) 0;
+      background: linear-gradient(180deg, #f0f4f8 0%, var(--bg-light) 100%);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .section-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-header h2 > i { color: var(--red-promo); font-size: 24px; }
+
+    .section-header a {
+      font-weight: 600;
+      font-size: 14px;
+      transition: gap 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .section-header a:hover { gap: 8px; }
+
+    .promo-label {
+      background: var(--red-promo);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .countdown-banner {
+      text-align: center;
+      background: rgba(229,57,53,0.08);
+      border: 1px solid rgba(229,57,53,0.2);
+      border-radius: var(--radius-card);
+      padding: 12px 24px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--red-promo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .countdown-banner i { font-size: 16px; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 320px));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .product-card-image {
+      aspect-ratio: 4/5;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .badge-promo { background: var(--red-promo); color: var(--white); }
+    .badge-new { background: var(--blue); color: var(--white); }
+    .badge-pack { background: var(--gold); color: var(--text-dark); }
+
+    .product-card-body {
+      padding: 16px;
+    }
+
+    .product-category {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .product-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+      letter-spacing: -0.3px;
+    }
+
+    .product-stars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 13px;
+    }
+    .product-stars .count {
+      color: var(--text-light);
+      font-size: 12px;
+      margin-left: 4px;
+      font-family: var(--font-body);
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .product-price {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--text-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .product-price-old {
+      font-size: 14px;
+      color: var(--text-light);
+      text-decoration: line-through;
+      font-weight: 400;
+      margin-left: 6px;
+    }
+
+    /* ======================== */
+    /* SECTION 5 — BEST SELLERS */
+    /* ======================== */
+    .bestsellers {
+      padding: var(--section-gap) 0;
+      background: var(--white);
+    }
+
+    /* ======================== */
+    /* SECTION 6 — PREUVE SOC.  */
+    /* ======================== */
+    .social-proof {
+      padding: var(--section-gap) 0;
+    }
+
+    .social-proof .section-title {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .social-proof .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 16px;
+      margin-bottom: 48px;
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 42px;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 6px;
+      letter-spacing: -2px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-light);
+      max-width: 160px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border: 1px solid #E8E8E8;
+      border-radius: var(--radius-card);
+      padding: 28px;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 2px;
+      color: var(--gold);
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    .review-text {
+      font-size: 14px;
+      color: var(--text-body);
+      margin-bottom: 20px;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    .review-source {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* ======================== */
+    /* SECTION 7 — GLB / YT     */
+    /* ======================== */
+    .glb-section {
+      padding: var(--section-gap) 0;
+      background: var(--text-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glb-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(54,132,197,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .glb-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .glb-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 16px;
+    }
+
+    .glb-section h2 {
+      color: var(--white);
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .glb-text {
+      color: rgba(255,255,255,0.7);
+      font-size: 15px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .glb-steps { margin-bottom: 36px; }
+
+    .glb-step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .glb-step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .glb-step-text {
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+      padding-top: 6px;
+      line-height: 1.5;
+    }
+
+    .glb-video {
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      position: relative;
+      background: rgba(255,255,255,0.05);
+      border: 2px dashed rgba(255,255,255,0.2);
+    }
+
+    .play-btn {
+      width: 72px;
+      height: 72px;
+      background: #E53935;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--white);
+      font-size: 30px;
+      padding-left: 3px;
+    }
+
+    .glb-video-label {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+    }
+
+    /* ======================== */
+    /* SECTION 8 — CATEGORIES   */
+    /* ======================== */
+    .categories {
+      padding: var(--section-gap) 0;
+      background: var(--white);
+    }
+
+    .categories .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .category-card {
+      background: var(--bg-light);
+      border-radius: var(--radius-card);
+      padding: 32px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .category-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .category-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(54,132,197,0.1);
+      color: var(--blue);
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .category-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+    }
+
+    .category-count {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* ======================== */
+    /* SECTION 9 — BLOG         */
+    /* ======================== */
+    .blog {
+      padding: var(--section-gap) 0;
+    }
+
+    .blog .section-title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .blog .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 16px;
+      margin-bottom: 48px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .blog-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .blog-card-image { aspect-ratio: 16/9; position: relative; overflow: hidden; }
+
+    .blog-card-body { padding: 24px; }
+
+    .blog-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .blog-tag-green { background: rgba(67,160,71,0.1); color: var(--green-check); }
+    .blog-tag-blue { background: rgba(54,132,197,0.1); color: var(--blue); }
+    .blog-tag-orange { background: rgba(255,152,0,0.1); color: #F57C00; }
+
+    .blog-card-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .blog-excerpt {
+      font-size: 14px;
+      color: var(--text-body);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .blog-link {
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s;
+    }
+    .blog-link:hover { gap: 8px; }
+
+    .blog-cta { text-align: center; }
+
+    /* ======================== */
+    /* SECTION 10 — NEWSLETTER  */
+    /* ======================== */
+    .newsletter {
+      padding: 60px 0;
+      background: var(--blue);
+    }
+
+    .newsletter-inner {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter h2 {
+      color: var(--white);
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .newsletter h2 .highlight { color: var(--gold); }
+
+    .newsletter-sub {
+      color: rgba(255,255,255,0.8);
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px 20px;
+      border-radius: var(--radius-pill);
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
+    .newsletter-form input:focus { border-color: var(--white); }
+
+    /* ======================== */
+    /* SECTION 11 — FOOTER      */
+    /* ======================== */
+    .footer {
+      background: #1a1a1a;
+      padding: 56px 0 0;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy { font-size: 13px; }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 18px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .footer-social:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    /* ======================== */
+    /* SCROLL-CONTAINER MOBILE  */
+    /* ======================== */
+    .scroll-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    /* ======================== */
+    /* RESPONSIVE               */
+    /* ======================== */
+    @media (max-width: 1024px) {
+      :root { --section-gap: 64px; }
+
+      .hero .container { grid-template-columns: 1fr; gap: 40px; }
+      .hero h1 { font-size: 36px; }
+      .hero { padding: 60px 0; }
+
+      .star-card-inner { grid-template-columns: 1fr; }
+      .star-card-image { aspect-ratio: 16/9; }
+      .star-card-info { padding: 32px; }
+
+      .products-grid, .scroll-row { grid-template-columns: repeat(2, 1fr); }
+
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid .review-card:last-child { display: none; }
+
+      .glb-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .categories-grid { grid-template-columns: repeat(3, 1fr); }
+
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .blog-grid .blog-card:last-child { display: none; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+
+      .reassurance-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      :root { --section-gap: 56px; }
+
+      .header-nav { display: none; }
+      .header-search { display: none; }
+      .icon-label { display: none; }
+      .mobile-menu-btn { display: block; }
+
+      .hero h1 { font-size: 28px; }
+      .hero-subtitle { font-size: 15px; }
+      .hero { padding: 48px 0; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { justify-content: center; }
+
+      .reassurance-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+
+      .star-card-info { padding: 24px; }
+      .star-card-info h2 { font-size: 24px; }
+      .star-price .price-main { font-size: 28px; }
+
+      .products-grid, .scroll-row { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+      .section-header h2 { font-size: 22px; }
+
+      .stats-row { gap: 32px; }
+      .stat-value { font-size: 32px; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-grid .review-card:last-child { display: block; }
+
+      .glb-section h2 { font-size: 24px; }
+
+      .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .categories-grid .category-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        margin: 0 auto;
+      }
+
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-grid .blog-card:last-child { display: block; }
+
+      .newsletter h2 { font-size: 22px; }
+      .newsletter-form { flex-direction: column; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .section-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 24px; }
+
+      .products-grid, .scroll-row { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+      .product-card-body { padding: 12px; }
+      .product-name { font-size: 13px; }
+      .product-price { font-size: 17px; }
+
+      .categories-grid .category-card:last-child { max-width: 100%; }
+    }
+
+    /* ======================== */
+    /* PRODUCT PAGE             */
+    /* ======================== */
+    .product-page { padding: 24px 0 80px; }
+    .product-layout { display: grid; grid-template-columns: 55fr 45fr; gap: 40px; align-items: start; }
+    .gallery-main { aspect-ratio: 1; border-radius: 12px; overflow: hidden; position: relative; background: #f5f5f5; }
+    .gallery-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-thumbs { display: flex; gap: 10px; margin-top: 12px; }
+    .thumb { width: 80px; height: 80px; flex: none; border-radius: 8px; overflow: hidden; cursor: pointer; border: 2px solid transparent; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #999; text-align: center; }
+    .thumb.active { border-color: var(--blue); }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .breadcrumb { font-size: 13px; color: var(--text-light); margin-bottom: 8px; }
+    .breadcrumb a { color: var(--text-light); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--blue); }
+    .breadcrumb span { margin: 0 6px; }
+
+    .glb-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(54,132,197,0.1); color: var(--blue); border-radius: var(--radius-pill); padding: 4px 12px; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+    .product-h1 { font-size: 26px; font-weight: 800; color: var(--text-dark); line-height: 1.2; margin-bottom: 8px; font-family: var(--font-display); }
+    .product-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 14px; }
+    .product-rating .stars { color: var(--gold); }
+    .product-rating a { color: var(--blue); text-decoration: none; font-weight: 500; }
+    .product-price-block { margin-bottom: 12px; }
+    .product-price-main { font-size: 32px; font-weight: 800; color: var(--text-dark); font-family: var(--font-display); }
+    .product-price-installment { font-size: 13px; color: var(--text-light); margin-top: 2px; }
+    .product-benefits { list-style: none; padding: 0; margin-bottom: 14px; display: flex; flex-direction: column; gap: 6px; }
+    .product-benefits li { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--text-body); }
+    .product-benefits .check-icon { color: var(--green-check); flex-shrink: 0; margin-top: 1px; }
+
+    .delivery-badge { display: flex; align-items: center; gap: 8px; background: #F0FAF4; border: 1px solid #B6E5C8; border-radius: 8px; padding: 8px 12px; margin-bottom: 12px; font-size: 13px; color: #1A6B3A; font-family: var(--font-body); }
+    .delivery-badge i { font-size: 16px; color: #25A05B; flex-shrink: 0; }
+    .delivery-badge strong { font-weight: 700; }
+    .delivery-badge .delivery-condition { color: #4A8A63; font-size: 11px; margin-left: auto; white-space: nowrap; }
+
+    .product-qty-row { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+    .qty-selector { display: flex; align-items: center; background: #EFEFEF; border-radius: var(--radius-pill); overflow: hidden; }
+    .qty-selector button { width: 36px; height: 44px; background: none; border: none; cursor: pointer; font-size: 18px; font-weight: 700; color: var(--text-dark); display: flex; align-items: center; justify-content: center; }
+    .qty-selector button:hover { background: rgba(0,0,0,0.06); }
+    .qty-selector span { min-width: 32px; text-align: center; font-weight: 700; font-size: 15px; font-family: var(--font-display); }
+    .btn-add-full { flex: 1; height: 44px; justify-content: center; }
+
+    .micro-reassurance { display: flex; gap: 16px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #F0F0F0; flex-wrap: wrap; }
+    .micro-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-light); font-family: var(--font-body); }
+    .micro-item i { color: var(--blue); font-size: 14px; }
+
+    /* VIDEO SECTION */
+    .product-video-section { padding: 32px 0; background: var(--bg-light); text-align: center; }
+    .product-video-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; font-family: var(--font-display); }
+    .product-video-section p { color: var(--text-light); margin-bottom: 20px; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; max-width: 560px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-hover); }
+    .video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .yt-channel-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; color: var(--blue); font-weight: 600; font-size: 14px; }
+
+    /* TABS */
+    .tabs-section { padding: 64px 0; }
+    .tabs-nav { display: flex; border-bottom: 2px solid #E8E8E8; margin-bottom: 32px; gap: 0; }
+    .tab-btn { padding: 12px 24px; font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--text-light); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color 0.2s, border-color 0.2s; }
+    .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+    .tab-pane h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); font-family: var(--font-display); letter-spacing: -0.2px; }
+    .tab-pane p { color: var(--text-body); line-height: 1.7; margin-bottom: 16px; font-size: 15px; }
+    .steps { display: flex; flex-direction: column; gap: 20px; }
+    .step { display: flex; gap: 16px; align-items: flex-start; }
+    .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; font-family: var(--font-display); }
+
+    /* SPECS */
+    .specs-section { padding: 48px 0; background: var(--bg-light); }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 600px; border: 1px solid #E8E8E8; border-radius: 10px; overflow: hidden; }
+    .spec-row { display: contents; }
+    .spec-label { padding: 14px 20px; background: #F9F9F9; font-weight: 600; font-size: 14px; color: var(--text-dark); border-bottom: 1px solid #E8E8E8; }
+    .spec-value { padding: 14px 20px; font-size: 14px; color: var(--text-body); border-bottom: 1px solid #E8E8E8; }
+
+    /* REVIEWS */
+    .reviews-section { padding: 64px 0; }
+    .reviews-summary { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; background: var(--bg-light); border-radius: 12px; padding: 32px; margin-bottom: 40px; }
+    .reviews-score { text-align: center; }
+    .score-big { font-size: 56px; font-weight: 800; color: var(--text-dark); line-height: 1; font-family: var(--font-display); }
+    .score-stars { color: var(--gold); font-size: 20px; margin: 4px 0; }
+    .score-count { font-size: 13px; color: var(--text-light); }
+    .rating-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 13px; }
+    .rating-bar-row span:first-child { min-width: 24px; text-align: right; color: var(--text-body); }
+    .rating-bar { flex: 1; height: 8px; background: #E8E8E8; border-radius: 4px; overflow: hidden; }
+    .rating-bar-fill { height: 100%; background: var(--gold); border-radius: 4px; }
+    .rating-bar-row span:last-child { min-width: 30px; color: var(--text-light); }
+    .review-card { background: var(--white); border: 1px solid #E8E8E8; border-radius: var(--radius-card); padding: 24px; margin-bottom: 16px; }
+    .review-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .review-author-info strong { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+    .review-verified { font-size: 11px; color: var(--green-check); font-weight: 500; display: flex; align-items: center; gap: 4px; margin-top: 2px; }
+    .review-date { font-size: 12px; color: var(--text-light); }
+    .review-text { font-size: 14px; color: var(--text-body); line-height: 1.6; }
+
+    /* FAQ */
+    .faq-section { padding: 64px 0; background: var(--bg-light); }
+    .faq-item { border-bottom: 1px solid #E8E8E8; }
+    .faq-question { width: 100%; text-align: left; padding: 18px 0; font-family: var(--font-body); font-weight: 600; font-size: 15px; color: var(--text-dark); background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-question i { color: var(--blue); flex-shrink: 0; transition: transform 0.2s; }
+    .faq-question.open i { transform: rotate(180deg); }
+    .faq-answer { font-size: 14px; color: var(--text-body); line-height: 1.7; padding-bottom: 16px; display: none; }
+    .faq-answer.open { display: block; }
+
+    /* CROSS-SELLING */
+    .cross-section { padding: 64px 0; }
+    .bundle-box { background: var(--white); border: 1px solid #E8E8E8; border-radius: 12px; padding: 20px 24px; margin-bottom: 48px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .bundle-products { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .bundle-product { display: flex; align-items: center; gap: 10px; background: var(--bg-light); border-radius: 8px; padding: 8px 12px 8px 8px; border: 1px solid #E8E8E8; }
+    .bundle-product img { width: 52px; height: 52px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+    .bundle-product-info { display: flex; flex-direction: column; }
+    .bundle-product-name { font-size: 12px; font-weight: 600; color: var(--text-dark); line-height: 1.3; }
+    .bundle-product-price { font-size: 13px; font-weight: 700; color: var(--blue); margin-top: 2px; }
+    .bundle-plus { font-size: 18px; color: var(--text-light); font-weight: 300; flex-shrink: 0; }
+    .bundle-total { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; flex: 1; justify-content: flex-end; }
+    .bundle-price-info { font-size: 14px; color: var(--text-body); white-space: nowrap; }
+    .bundle-price-info strong { color: var(--text-dark); font-size: 18px; }
+    .bundle-price-info del { color: var(--text-light); font-size: 13px; }
+    .bundle-price-info .savings { color: var(--red-promo); font-weight: 600; font-size: 12px; display: block; }
+
+    /* RESPONSIVE PRODUCT */
+    @media (max-width: 1024px) {
+      .product-layout { grid-template-columns: 1fr; gap: 32px; }
+      .product-h1 { font-size: 22px; }
+    }
+    @media (max-width: 768px) {
+      .gallery-thumbs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+      .thumb { flex: 0 0 72px; }
+      .product-qty-row { flex-direction: column; align-items: stretch; }
+      .micro-reassurance { gap: 12px; }
+      .reviews-summary { grid-template-columns: 1fr; gap: 24px; }
+      .bundle-products { flex-direction: column; }
+      .bundle-plus { display: none; }
+    }
+
+    /* Tabs compat table */
+    .compat-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+    .compat-table th { background: #F5F5F5; padding: 10px 14px; text-align: left; font-weight: 600; color: var(--text-dark); border-bottom: 2px solid #E8E8E8; }
+    .compat-table td { padding: 10px 14px; border-bottom: 1px solid #F0F0F0; color: var(--text-body); }
+    .compat-table tr:hover td { background: rgba(54,132,197,0.03); }
+
+    /* Section titles utility */
+    .section-title-center { text-align: center; font-size: 26px; font-weight: 800; margin-bottom: 8px; font-family: var(--font-display); }
+    .section-subtitle-center { text-align: center; color: var(--text-light); margin-bottom: 40px; font-size: 15px; }
+
+    /* ======================== */
+    /* ZONES — BELOW THE FOLD   */
+    /* ======================== */
+    .zone { padding: 64px 0; }
+    .zone-comprendre { background: var(--white); }
+    .zone-reassure { background: var(--bg-light); }
+    .zone-cross { background: #F5F5F5; }
+
+    .zone-grid { display: grid; grid-template-columns: 60fr 40fr; gap: 56px; align-items: start; }
+
+    /* STEPPER */
+    .stepper { margin-top: 36px; padding-top: 28px; border-top: 1px solid #E8E8E8; }
+    .stepper-heading { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 20px; }
+    .stepper-steps { position: relative; padding-left: 52px; }
+    .stepper-steps::before { content: ''; position: absolute; left: 17px; top: 18px; bottom: 18px; width: 2px; background: var(--blue); }
+    .stepper-step { position: relative; padding-bottom: 32px; }
+    .stepper-step:last-child { padding-bottom: 0; }
+    .stepper-num { position: absolute; left: -52px; top: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: var(--white); font-family: var(--font-display); font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; z-index: 1; }
+    .stepper-step strong { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: var(--text-dark); display: block; margin-bottom: 4px; margin-top: 6px; }
+    .stepper-step p { color: var(--text-body); font-size: 14px; line-height: 1.5; margin: 0; }
+
+    /* ZONE SIDE — vidéo + specs */
+    .zone-side-label { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 10px; display: block; }
+    .zone-video-embed { position: relative; padding-bottom: 56.25%; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-hover); }
+    .zone-video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .specs-toggle { margin-top: 20px; border: 1px solid #E8E8E8; border-radius: var(--radius-card); overflow: hidden; }
+    .specs-toggle-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: #F9F9F9; border: none; cursor: pointer; font-family: var(--font-display); font-weight: 600; font-size: 13px; color: var(--text-dark); }
+    .specs-toggle-btn:hover { background: #F0F0F0; }
+    .specs-toggle-body { display: none; padding: 4px 14px 12px; }
+    .specs-toggle-body.open { display: block; }
+    .zone-specs-block { margin-top: 28px; }
+    .zone-specs-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+    .zone-specs-table tr:not(:last-child) { border-bottom: 1px solid #F0F0F0; }
+    .zone-specs-table td { padding: 9px 0; vertical-align: top; }
+    .zone-specs-table td:first-child { color: var(--text-light); font-weight: 500; width: 52%; padding-right: 8px; }
+    .zone-specs-table td:last-child { color: var(--text-dark); font-weight: 600; }
+
+    /* ZONE 2 — titles */
+    .zone-col-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--text-dark); margin-bottom: 4px; }
+    .zone-col-sub { color: var(--text-light); font-size: 14px; margin-bottom: 24px; }
+    .zone-reassure .reviews-summary { background: var(--white); }
+
+    /* ZONE 3 — cross-selling */
+    .zone-cross-sep { margin-top: 48px; }
+    .zone-cross .bundle-box { background: var(--white); }
+
+    /* Responsive zones */
+    @media (max-width: 1024px) {
+      .zone-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================== -->
+  <!-- SECTION 0 — TOP BAR      -->
+  <!-- ======================== -->
+  <div class="topbar" aria-label="Informations promotionnelles">
+    <div class="topbar-track">
+      <span class="topbar-msg"><i class="icon-truck"></i> Livraison offerte en point relais dès 100€ en France métropolitaine</span>
+      <span class="topbar-msg"><i class="icon-credit-card"></i> Payez en 4x sans frais avec PayPal</span>
+      <span class="topbar-msg"><i class="icon-flame"></i> -15% sur toute la gamme additifs avec le code DETOX15</span>
+      <span class="topbar-msg"><i class="icon-truck"></i> Livraison offerte en point relais dès 100€ en France métropolitaine</span>
+      <span class="topbar-msg"><i class="icon-credit-card"></i> Payez en 4x sans frais avec PayPal</span>
+      <span class="topbar-msg"><i class="icon-flame"></i> -15% sur toute la gamme additifs avec le code DETOX15</span>
+      <span class="topbar-msg"><i class="icon-truck"></i> Livraison offerte en point relais dès 100€ en France métropolitaine</span>
+      <span class="topbar-msg"><i class="icon-credit-card"></i> Payez en 4x sans frais avec PayPal</span>
+      <span class="topbar-msg"><i class="icon-flame"></i> -15% sur toute la gamme additifs avec le code DETOX15</span>
+      <span class="topbar-msg"><i class="icon-truck"></i> Livraison offerte en point relais dès 100€ en France métropolitaine</span>
+      <span class="topbar-msg"><i class="icon-credit-card"></i> Payez en 4x sans frais avec PayPal</span>
+      <span class="topbar-msg"><i class="icon-flame"></i> -15% sur toute la gamme additifs avec le code DETOX15</span>
+    </div>
+  </div>
+
+  <!-- ======================== -->
+  <!-- HEADER / NAV             -->
+  <!-- ======================== -->
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="Adobe Express - file.webp" alt="MyLittleGarage">
+        </a>
+        <div class="header-search">
+          <i class="icon-search search-icon"></i>
+          <input type="search" placeholder="Recherche un produit" aria-label="Recherche un produit">
+        </div>
+        <div class="nav-icons">
+          <div class="nav-icon" role="button" aria-label="Mon compte">
+            <i class="icon-user"></i>
+          </div>
+          <div class="nav-icon nav-icon-cart" role="button" aria-label="Panier">
+            <i class="icon-shopping-cart"></i>
+            <span class="cart-count">1</span>
+            <span class="cart-price">€49,90</span>
+          </div>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Ouvrir le menu"><i class="icon-menu"></i></button>
+      </div>
+    </div>
+    <div class="header-nav">
+      <div class="container">
+        <nav class="nav-links" aria-label="Navigation principale">
+
+          <div class="nav-item">
+            <a href="#">Huiles et fluides</a>
+            <div class="nav-dropdown">
+              <a href="#">Huile moteur</a>
+              <a href="#">Huile de boîte</a>
+              <a href="#">Liquide de frein</a>
+              <a href="#">Liquide de refroidissement</a>
+              <a href="#">Additifs huile</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#">Additifs et nettoyants</a>
+            <div class="nav-dropdown">
+              <a href="#">Additifs carburant</a>
+              <a href="#">Nettoyants injecteurs</a>
+              <a href="#">Traitement FAP / EGR</a>
+              <a href="#">Additifs moteur</a>
+              <a href="#">Dégraissants</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#">Entretien extérieur</a>
+            <div class="nav-dropdown">
+              <a href="#">Shampooings carrosserie</a>
+              <a href="#">Cires et polish</a>
+              <a href="#">Nettoyants jantes</a>
+              <a href="#">Protections plastiques</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#">Entretien intérieur</a>
+            <div class="nav-dropdown">
+              <a href="#">Nettoyants tissu</a>
+              <a href="#">Nettoyants cuir</a>
+              <a href="#">Désodorisants</a>
+              <a href="#">Produits tableau de bord</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#">Outillage</a>
+            <div class="nav-dropdown">
+              <a href="#">Diagnostic OBD</a>
+              <a href="#">Outils moteur</a>
+              <a href="#">Accessoires atelier</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#">Peinture</a>
+            <div class="nav-dropdown">
+              <a href="#">Retouche carrosserie</a>
+              <a href="#">Peinture jantes</a>
+              <a href="#">Apprêts et primaires</a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#">L'Atelier</a>
+            <div class="nav-dropdown">
+              <a href="#">Tests vidéo GLB</a>
+              <a href="#">Guides d'entretien</a>
+              <a href="#">Conseils mécaniques</a>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================== -->
+  <!-- ABOVE THE FOLD — PRODUIT -->
+  <!-- ======================== -->
+  <section class="product-page">
+    <div class="container">
+      <div class="product-layout">
+
+        <!-- Colonne gauche — Galerie -->
+        <div class="product-gallery">
+          <div class="gallery-main" style="position:relative;">
+            <span class="star-badge">★ Best-Seller</span>
+            <img id="main-img" src="Gemini_Generated_Image_6356gy6356gy6356.png" alt="Diesel Detox Pro — vue principale">
+          </div>
+          <div class="gallery-thumbs">
+            <div class="thumb active" data-src="Gemini_Generated_Image_6356gy6356gy6356.png"><img src="Gemini_Generated_Image_6356gy6356gy6356.png" alt="Vue face"></div>
+            <div class="thumb" data-src="detox-pro-situation.png"><img src="detox-pro-situation.png" alt="En situation"></div>
+          </div>
+        </div>
+
+        <!-- Colonne droite — Zone achat -->
+        <div class="product-buy-col">
+
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a>
+            <span>›</span>
+            <a href="#">Additifs &amp; Nettoyants</a>
+            <span>›</span>
+            Diesel Detox Pro
+          </nav>
+
+          <!-- Badge GLB -->
+          <div class="glb-badge">
+            <i class="icon-youtube"></i> Vu sur GLB · 500K+ vues
+          </div>
+
+          <!-- Titre -->
+          <h1 class="product-h1">Diesel Detox Pro — Additif nettoyant tout-en-un pour moteur diesel</h1>
+
+          <!-- Rating -->
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <strong style="color:var(--text-dark);">4,8/5</strong>
+            <a href="#avis">142 avis</a>
+          </div>
+
+          <!-- Prix -->
+          <div class="product-price-block">
+            <div class="product-price-main">29,90€</div>
+            <div class="product-price-installment">ou 4x 7,48€ sans frais avec PayPal</div>
+          </div>
+
+          <!-- Bullet points -->
+          <ul class="product-benefits">
+            <li><i class="icon-check check-icon"></i> Nettoie injecteurs, FAP et vanne EGR en un seul traitement</li>
+            <li><i class="icon-check check-icon"></i> Réduit la consommation de carburant et les émissions polluantes</li>
+            <li><i class="icon-check check-icon"></i> Résultats visibles dès le premier plein — voyant FAP éteint</li>
+            <li><i class="icon-check check-icon"></i> Testé et recommandé par GLB devant 500 000 abonnés</li>
+          </ul>
+
+          <!-- Livraison estimée -->
+          <div class="delivery-badge">
+            <i class="icon-truck"></i>
+            <span>Livré avant le <strong id="delivery-date">…</strong></span>
+            <span class="delivery-condition">si commandé aujourd'hui</span>
+          </div>
+
+          <!-- Quantité + Ajouter au panier -->
+          <div class="product-qty-row">
+            <div class="qty-selector">
+              <button class="qty-minus" aria-label="Diminuer la quantité">−</button>
+              <span class="qty-val">1</span>
+              <button class="qty-plus" aria-label="Augmenter la quantité">+</button>
+            </div>
+            <button class="btn btn-primary btn-add-full">
+              <i class="icon-shopping-cart"></i> Ajouter au panier
+            </button>
+          </div>
+
+          <!-- Micro-réassurance -->
+          <div class="micro-reassurance">
+            <div class="micro-item">
+              <i class="icon-truck"></i>
+              Livraison offerte dès 100€
+            </div>
+            <div class="micro-item">
+              <i class="icon-rotate-ccw"></i>
+              Retours sous 14 jours
+            </div>
+            <div class="micro-item">
+              <i class="icon-zap"></i>
+              Expédié en 24–48h
+            </div>
+          </div>
+
+        </div>
+        <!-- /product-buy-col -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- ZONE 1 — TOUT COMPRENDRE -->
+  <!-- ======================== -->
+  <section class="zone zone-comprendre">
+    <div class="container">
+      <div class="zone-grid">
+
+        <!-- Colonne gauche 60% : Onglets + Stepper -->
+        <div>
+          <div class="tabs-nav" role="tablist">
+            <button class="tab-btn active" data-tab="tab-description" role="tab" aria-selected="true">Description</button>
+            <button class="tab-btn" data-tab="tab-compatibilite" role="tab" aria-selected="false">Compatibilité</button>
+            <button class="tab-btn" data-tab="tab-specs" role="tab" aria-selected="false">Caractéristiques</button>
+          </div>
+
+          <div class="tab-pane active" id="tab-description" role="tabpanel">
+            <h3>Action sur les injecteurs</h3>
+            <p>Avec l'usage, les injecteurs diesel s'encrassent progressivement de dépôts carbonés qui perturbent la pulvérisation du carburant. Le Diesel Detox Pro contient des agents détergents haute concentration qui dissolvent ces dépôts et restituent un spray parfait à chaque injecteur. Dès le premier plein, vous pouvez constater une meilleure réponse à l'accélération et une combustion plus franche.</p>
+            <h3>Régénération du filtre à particules (FAP)</h3>
+            <p>Le filtre à particules est conçu pour piéger les suies émises par la combustion diesel. En usage urbain intensif, les régénérations automatiques ne suffisent pas et le FAP sature. Le Diesel Detox Pro abaisse la température de combustion des suies, facilitant la régénération passive même en ville. De nombreux utilisateurs constatent l'extinction du voyant FAP dès 150 à 300 km après le traitement.</p>
+            <h3>Nettoyage de la vanne EGR</h3>
+            <p>La vanne EGR recircule une partie des gaz d'échappement vers l'admission pour réduire les émissions de NOx. Au fil du temps, elle s'encrasse de suies et de résidus huileux, provoquant des à-coups au ralenti, des fumées noires et une perte de puissance mesurable. La formule du Diesel Detox Pro passe dans tout le circuit carburant et d'admission pour dissoudre ces encrassements et redonner de la fluidité à la vanne.</p>
+          </div>
+
+          <div class="tab-pane" id="tab-compatibilite" role="tabpanel">
+            <h3>Compatibilité générale</h3>
+            <p>Le Diesel Detox Pro est compatible avec tous les moteurs diesel à injection directe (TDI, HDi, dCi, CDTi, CRDI, JTD…) équipés ou non d'un filtre à particules (FAP/DPF). Il est sans risque pour les catalyseurs et les joints d'injecteurs.</p>
+            <table class="compat-table">
+              <thead>
+                <tr><th>Marque / Motorisation</th><th>Compatibilité</th><th>Remarques</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Volkswagen / Audi TDI (toutes générations)</td><td>✅ Oui</td><td>Inclus PD, Common Rail</td></tr>
+                <tr><td>Peugeot / Citroën HDi, BlueHDi</td><td>✅ Oui</td><td>Compatible FAP additivé</td></tr>
+                <tr><td>Renault / Dacia dCi, Blue dCi</td><td>✅ Oui</td><td>Toutes cylindrées</td></tr>
+                <tr><td>Ford TDCi / EcoBlue</td><td>✅ Oui</td><td>Inclus SCR / AdBlue</td></tr>
+                <tr><td>BMW / Mercedes CDI, d</td><td>✅ Oui</td><td>Compatibilité FAP/DPF confirmée</td></tr>
+                <tr><td>Moteurs essence / GPL / hybride</td><td>❌ Non</td><td>Réservé aux moteurs diesel uniquement</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- /colonne gauche -->
+
+        <!-- Colonne droite 40% : Stepper + Vidéo + Specs -->
+        <div>
+          <div class="tab-pane" id="tab-specs" role="tabpanel">
+            <table class="zone-specs-table" style="margin-top:4px;">
+              <tr><td>Contenance</td><td>300 ml</td></tr>
+              <tr><td>Type de produit</td><td>Additif carburant diesel</td></tr>
+              <tr><td>Dosage recommandé</td><td>1 bouteille pour 40 à 60 L</td></tr>
+              <tr><td>Compatibilité</td><td>Tous moteurs diesel à injection directe</td></tr>
+              <tr><td>Fréquence</td><td>Tous les 10 000 km ou 1 fois par an</td></tr>
+              <tr><td>Fabrication</td><td>France / UE</td></tr>
+            </table>
+          </div>
+
+          <!-- Stepper Mode d'emploi -->
+          <div class="stepper">
+            <p class="stepper-heading">Mode d'emploi</p>
+            <div class="stepper-steps">
+              <div class="stepper-step">
+                <div class="stepper-num">1</div>
+                <strong>Versez dans le réservoir</strong>
+                <p>Versez le contenu (300 ml) directement dans le réservoir avant ou après le plein.</p>
+              </div>
+              <div class="stepper-step">
+                <div class="stepper-num">2</div>
+                <strong>Faites le plein</strong>
+                <p>Faites le plein de diesel par-dessus. Le produit se mélange automatiquement.</p>
+              </div>
+              <div class="stepper-step">
+                <div class="stepper-num">3</div>
+                <strong>Roulez</strong>
+                <p>Roulez normalement. Résultats entre 150 et 300 km.</p>
+              </div>
+            </div>
+          </div>
+
+          <span class="zone-side-label" style="margin-top:28px;">Le test vidéo GLB</span>
+          <div class="zone-video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/KY-WI27DDmo?si=assgmzrp5DV6nygb"
+              title="Test Diesel Detox Pro — chaîne GLB"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <a href="https://www.youtube.com/@GLB" target="_blank" rel="noopener" class="yt-channel-link" style="margin-top:10px;margin-bottom:28px;">
+            <i class="icon-youtube"></i> Chaîne YouTube GLB
+          </a>
+
+        </div>
+        <!-- /colonne droite -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- ZONE 2 — ÊTRE RASSURÉ   -->
+  <!-- ======================== -->
+  <section class="zone zone-reassure" id="avis">
+    <div class="container">
+      <div class="zone-grid">
+
+        <!-- Colonne gauche 60% : Avis clients -->
+        <div>
+          <h2 class="zone-col-title">Avis clients</h2>
+          <p class="zone-col-sub">142 avis vérifiés · Note moyenne 4,8/5</p>
+
+          <div class="reviews-summary">
+            <div class="reviews-score">
+              <div class="score-big">4,8</div>
+              <div class="score-stars">★★★★★</div>
+              <div class="score-count">142 avis</div>
+            </div>
+            <div class="rating-bars">
+              <div class="rating-bar-row"><span>5★</span><div class="rating-bar"><div class="rating-bar-fill" style="width:85%"></div></div><span>85%</span></div>
+              <div class="rating-bar-row"><span>4★</span><div class="rating-bar"><div class="rating-bar-fill" style="width:10%"></div></div><span>10%</span></div>
+              <div class="rating-bar-row"><span>3★</span><div class="rating-bar"><div class="rating-bar-fill" style="width:3%"></div></div><span>3%</span></div>
+              <div class="rating-bar-row"><span>2★</span><div class="rating-bar"><div class="rating-bar-fill" style="width:1%"></div></div><span>1%</span></div>
+              <div class="rating-bar-row"><span>1★</span><div class="rating-bar"><div class="rating-bar-fill" style="width:1%"></div></div><span>1%</span></div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-info"><strong>Sébastien L.</strong><div class="review-verified"><i class="icon-check"></i> Achat vérifié</div></div>
+              <div class="review-date">Février 2026</div>
+            </div>
+            <div style="color:var(--gold);margin-bottom:10px;">★★★★★</div>
+            <p class="review-text">Mon FAP était complètement encrassé sur ma Golf 7 TDI 150, le voyant moteur allumé depuis plus de deux semaines. Après avoir regardé la vidéo de GLB, j'ai commandé le Diesel Detox Pro. J'ai versé le flacon avant de faire un plein, j'ai ensuite roulé une trentaine de kilomètres sur l'autoroute et le voyant s'est éteint. Je n'en reviens toujours pas. Résultat bluffant, je recommande à toute ma famille.</p>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-info"><strong>Marie-Claire P.</strong><div class="review-verified"><i class="icon-check"></i> Achat vérifié</div></div>
+              <div class="review-date">Janvier 2026</div>
+            </div>
+            <div style="color:var(--gold);margin-bottom:10px;">★★★★★</div>
+            <p class="review-text">Ma Peugeot 308 1.6 HDi perdait clairement de la puissance depuis quelques mois, avec des à-coups au ralenti. Le garagiste m'avait parlé de la vanne EGR encrassée. J'ai essayé le Diesel Detox Pro avant de passer en atelier — les à-coups ont disparu et la voiture a retrouvé sa vivacité. J'ai économisé plusieurs centaines d'euros de main-d'œuvre.</p>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-info"><strong>Thierry M.</strong><div class="review-verified"><i class="icon-check"></i> Achat vérifié</div></div>
+              <div class="review-date">Décembre 2025</div>
+            </div>
+            <div style="color:var(--gold);margin-bottom:10px;">★★★★★</div>
+            <p class="review-text">Abonné à la chaîne GLB depuis longtemps, j'attendais de voir les résultats du test avant de commander. La vidéo est vraiment convaincante avec les mesures avant/après. Sur mon Renault Trafic 2.0 dCi, j'ai constaté une baisse de consommation d'environ 0,4 L/100 km et un régime ralenti plus stable. Je fais maintenant un traitement tous les 10 000 km en préventif.</p>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-author-info"><strong>Julien R.</strong><div class="review-verified"><i class="icon-check"></i> Achat vérifié</div></div>
+              <div class="review-date">Novembre 2025</div>
+            </div>
+            <div style="color:var(--gold);margin-bottom:10px;">★★★★☆</div>
+            <p class="review-text">Produit efficace sur mon Audi A4 2.0 TDI. Le voyant moteur lié à la pression du FAP est passé de l'orange au vert après environ 250 km. Petit bémol : j'aurais aimé que l'emballage indique plus clairement le dosage pour les gros réservoirs. Sinon le produit fait ce qu'il promet et la livraison a été rapide.</p>
+          </div>
+
+          <div style="text-align:center;margin-top:24px;">
+            <button class="btn btn-secondary">Voir tous les avis (142)</button>
+          </div>
+        </div>
+        <!-- /colonne gauche avis -->
+
+        <!-- Colonne droite 40% : FAQ -->
+        <div>
+          <h2 class="zone-col-title">Questions fréquentes</h2>
+          <div style="height:4px;margin-bottom:24px;"></div>
+
+          <div class="faq-item">
+            <button class="faq-question">Est-ce compatible avec mon véhicule ?<i class="icon-chevron-down"></i></button>
+            <div class="faq-answer">Le Diesel Detox Pro est compatible avec tous les moteurs diesel à injection directe (Common Rail, TDI, HDi, dCi, CDTi, CRDI, JTD…), avec ou sans filtre à particules. Il n'est pas destiné aux moteurs essence, GPL ou hybrides.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Combien de traitements par bouteille ?<i class="icon-chevron-down"></i></button>
+            <div class="faq-answer">Un flacon de 300 ml correspond à un traitement complet pour un réservoir de 40 à 60 litres. En cas d'encrassement sévère, il est possible de réaliser deux traitements consécutifs sur deux pleins successifs pour un résultat optimal.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">À quelle fréquence utiliser le Diesel Detox Pro ?<i class="icon-chevron-down"></i></button>
+            <div class="faq-answer">En utilisation préventive, nous recommandons un traitement tous les 10 000 km ou une fois par an, en parallèle de votre vidange. Cette fréquence maintient vos injecteurs propres, votre FAP en bonne santé et votre vanne EGR fluide.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Est-ce que ça peut endommager mon moteur ?<i class="icon-chevron-down"></i></button>
+            <div class="faq-answer">Non. La formule a été développée et testée pour être compatible avec tous les matériaux des circuits carburant modernes : joints, durites, injecteurs, pompes haute pression. Le produit ne contient pas de solvants agressifs.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">En combien de temps voit-on les résultats ?<i class="icon-chevron-down"></i></button>
+            <div class="faq-answer">Les premiers effets sont généralement perceptibles entre 150 et 300 km après le traitement. L'extinction du voyant FAP, la réduction des fumées noires et la disparition des à-coups au ralenti sont les signes les plus fréquemment rapportés.</div>
+          </div>
+        </div>
+        <!-- /colonne droite faq -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- ZONE 3 — CROSS-SELLING  -->
+  <!-- ======================== -->
+  <section class="zone zone-cross">
+    <div class="container">
+
+      <h2 class="zone-cross-title" style="margin-bottom:6px;">Souvent achetés ensemble</h2>
+      <p class="zone-col-sub">Combinez les produits pour un entretien diesel complet</p>
+
+      <div class="bundle-box">
+        <div class="bundle-products">
+          <div class="bundle-product">
+            <img src="Gemini_Generated_Image_6356gy6356gy6356.png" alt="Diesel Detox Pro">
+            <div class="bundle-product-info">
+              <div class="bundle-product-name">Diesel Detox Pro</div>
+              <div class="bundle-product-price">29,90€</div>
+            </div>
+          </div>
+          <div class="bundle-plus">+</div>
+          <div class="bundle-product">
+            <img src="detox-pro-situation.png" alt="Nettoyant FAP Professionnel">
+            <div class="bundle-product-info">
+              <div class="bundle-product-name">Nettoyant FAP Professionnel</div>
+              <div class="bundle-product-price">24,90€</div>
+            </div>
+          </div>
+        </div>
+        <div class="bundle-total">
+          <div class="bundle-price-info">
+            Prix du lot : <strong>49,90€</strong> <del>54,80€</del><br>
+            <span class="savings">Vous économisez 4,90€ (−9%)</span>
+          </div>
+          <button class="btn btn-primary" style="flex:1;justify-content:center;max-width:320px;">
+            <i class="icon-shopping-cart"></i> Ajouter le lot au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="zone-cross-sep">
+        <h2 class="zone-cross-title" style="margin-bottom:6px;">Vous pourriez aussi aimer</h2>
+        <p class="zone-col-sub">Produits testés et approuvés par la chaîne GLB</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-card-image" aria-label="Pack Nettoyant FAP + EGR">
+            <img src="detox-pro-situation.png" alt="Pack Nettoyant FAP + EGR" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <span class="product-badge badge-promo">-20%</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-category">Pack entretien</div>
+            <div class="product-name">Pack Nettoyant FAP + EGR</div>
+            <div class="product-stars">★★★★★ <span class="count">(87)</span></div>
+            <div class="product-price-row">
+              <div><span class="product-price">39,90€</span><span class="product-price-old">49,90€</span></div>
+              <div class="cart-qty-wrapper">
+                <div class="qty-control">
+                  <button class="qty-btn" onclick="this.nextElementSibling.textContent=Math.max(1,+this.nextElementSibling.textContent-1)">−</button>
+                  <span class="qty-value">1</span>
+                  <button class="qty-btn" onclick="this.previousElementSibling.textContent=+this.previousElementSibling.textContent+1">+</button>
+                </div>
+                <button class="btn-add-cart" aria-label="Ajouter au panier"><i class="icon-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image" aria-label="Nettoyant Injecteurs Diesel Pro">
+            <img src="Gemini_Generated_Image_6356gy6356gy6356.png" alt="Nettoyant Injecteurs Diesel Pro" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <span class="product-badge badge-promo">-15%</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-category">Additifs</div>
+            <div class="product-name">Nettoyant Injecteurs Diesel Pro</div>
+            <div class="product-stars">★★★★★ <span class="count">(62)</span></div>
+            <div class="product-price-row">
+              <div><span class="product-price">16,92€</span><span class="product-price-old">19,90€</span></div>
+              <div class="cart-qty-wrapper">
+                <div class="qty-control">
+                  <button class="qty-btn" onclick="this.nextElementSibling.textContent=Math.max(1,+this.nextElementSibling.textContent-1)">−</button>
+                  <span class="qty-value">1</span>
+                  <button class="qty-btn" onclick="this.previousElementSibling.textContent=+this.previousElementSibling.textContent+1">+</button>
+                </div>
+                <button class="btn-add-cart" aria-label="Ajouter au panier"><i class="icon-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- SECTION 10 — NEWSLETTER  -->
+  <!-- ======================== -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-inner">
+        <h2>Recevez nos conseils + <span class="highlight">5€ de réduction</span></h2>
+        <p class="newsletter-sub">Inscrivez-vous : astuces entretien, nouveaux produits et offres exclusives.</p>
+        <form class="newsletter-form" aria-label="Inscription newsletter">
+          <input type="email" placeholder="Votre adresse email" aria-label="Adresse email" required>
+          <button type="submit" class="btn btn-primary btn-sm">S'inscrire <i class="icon-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- FOOTER                   -->
+  <!-- ======================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><img src="Adobe Express - file.webp" alt="MyLittleGarage"></div>
+          <p>Produits d'entretien automobile testés en vidéo sur la chaîne YouTube GLB. Chaque produit est vérifié en conditions réelles avant d'être proposé à la vente.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Boutique</h4>
+          <a href="#">Additifs &amp; Nettoyants</a>
+          <a href="#">Huiles &amp; Fluides</a>
+          <a href="#">Entretien Extérieur</a>
+          <a href="#">Entretien Intérieur</a>
+          <a href="#">Outillage &amp; Diagnostic</a>
+        </div>
+        <div class="footer-col">
+          <h4>Aide</h4>
+          <a href="#">FAQ</a>
+          <a href="#">Livraison &amp; Retours</a>
+          <a href="#">Nous contacter</a>
+          <a href="#">Programme fidélité</a>
+          <a href="#">Mon compte</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="#">Conditions générales de vente</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">Mentions légales</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 MyLittleGarage.fr — Tous droits réservés</div>
+        <div class="footer-socials">
+          <a class="footer-social" aria-label="YouTube" href="#"><i class="icon-youtube"></i></a>
+          <a class="footer-social" aria-label="Instagram" href="#"><i class="icon-instagram"></i></a>
+          <a class="footer-social" aria-label="Facebook" href="#"><i class="icon-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================== -->
+  <!-- JAVASCRIPT               -->
+  <!-- ======================== -->
+  <script>
+
+    // ---- Date de livraison estimée (J+2 ouvré) ----
+    (function() {
+      var jours = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+      var mois  = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+      var d = new Date();
+      var added = 0;
+      while (added < 2) {
+        d.setDate(d.getDate() + 1);
+        var dow = d.getDay();
+        if (dow !== 0 && dow !== 6) added++; // skip weekends
+      }
+      var label = jours[d.getDay()] + ' ' + d.getDate() + ' ' + mois[d.getMonth()];
+      var el = document.getElementById('delivery-date');
+      if (el) el.textContent = label;
+    })();
+
+    // ---- Galerie vignettes ----
+    document.querySelectorAll('.thumb[data-src]').forEach(t => {
+      t.addEventListener('click', () => {
+        document.getElementById('main-img').src = t.dataset.src;
+        document.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+      });
+    });
+
+    // ---- Tabs ----
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // ---- FAQ accordion ----
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const ans = q.nextElementSibling;
+        const isOpen = q.classList.contains('open');
+        document.querySelectorAll('.faq-question').forEach(x => {
+          x.classList.remove('open');
+          x.nextElementSibling.classList.remove('open');
+        });
+        if (!isOpen) {
+          q.classList.add('open');
+          ans.classList.add('open');
+        }
+      });
+    });
+
+    // ---- Qty selector ----
+    document.querySelectorAll('.qty-selector').forEach(sel => {
+      const minus = sel.querySelector('.qty-minus');
+      const plus = sel.querySelector('.qty-plus');
+      const val = sel.querySelector('.qty-val');
+      minus.addEventListener('click', () => val.textContent = Math.max(1, +val.textContent - 1));
+      plus.addEventListener('click', () => val.textContent = +val.textContent + 1);
+    });
+
+    // ---- Smooth scroll vers avis ----
+    document.querySelector('a[href="#avis"]')?.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('avis').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // ---- Subtle scroll fade-in ----
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.product-card, .review-card, .faq-item, .step, .bundle-product').forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+      });
+    })();
+
+    // ---- Newsletter form (demo) ----
+    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var input = this.querySelector('input');
+      if (input.value) {
+        input.value = '';
+        input.placeholder = 'Merci pour votre inscription !';
+        setTimeout(function() {
+          input.placeholder = 'Votre adresse email';
+        }, 3000);
+      }
+    });
+
+  </script>
+
+</body>
+</html>
